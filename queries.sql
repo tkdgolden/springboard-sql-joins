@@ -48,7 +48,7 @@ SELECT first_name, last_name, COUNT(*) FROM owners
 -- Display the owners first_name , last_name, average price and count of vehicles. 
 -- The first_name should be ordered in descending order. 
 -- Only display results with more than one vehicle and an average price greater than 10000. 
-SELECT first_name, last_name, AVG(price), COUNT(*) FROM owners
+SELECT first_name, last_name, ROUND(AVG(price)), COUNT(*) FROM owners
 	JOIN vehicles ON owners.id = vehicles.owner_id
     GROUP BY owners.id
     HAVING COUNT(*) > 1 AND AVG(price) > 10000
